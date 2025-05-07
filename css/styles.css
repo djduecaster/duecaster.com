@@ -200,3 +200,44 @@ footer {
         gap: 1.5rem;
     }
 } 
+
+/* constrain & pad the content */
+.blog-posts {
+    width: auto;
+    margin: 0;
+    padding: 2rem 1rem;
+  }
+  
+  /* simple vertical spacing between posts */
+  .post {
+    margin-bottom: 3rem;
+  }
+  
+  /* subtitle under the header */
+  .subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    margin-top: 0.5rem;
+  }
+  
+  /* smaller, italic meta line */
+  .post-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+  }
+  
+  /* images full‑width but keeping aspect ratio */
+  .post img {
+    max-width: 50%;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  /* paragraphs get some breathing room */
+  .post p + p {
+    margin-top: 1rem;
+  }
