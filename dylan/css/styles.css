@@ -1,0 +1,67 @@
+/* 1. Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+/* 2. Global Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f8f8; /* very light gray */
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Page Title */
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+hr {
+    border: none;                    /* Remove default styling */
+    border-top: 2px solid #eee;      /* Light gray line */
+    margin: 2rem 0;                  /* Vertical spacing above/below */
+  }
+
+/* 4. Posts Container */
+#posts-container {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  line-height: 1.7;
+}
+
+/* 5. Inside the Post Content */
+#posts-container h1 {
+    text-align: left;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+}
+#posts-container h2, 
+#posts-container h3 {
+  text-align: left;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#posts-container p {
+  margin-bottom: 1.25rem;
+}
+
+#posts-container img {
+  max-width: 80%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.post-date {
+    margin-top: 0;
+    margin-bottom: 1.5rem;  /* adjust spacing below date as needed */
+    font-size: 0.9rem;
+    font-style: italic;
+}

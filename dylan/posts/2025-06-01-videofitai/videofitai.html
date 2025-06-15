@@ -1,0 +1,17 @@
+<h1>Video Fit AI</h1>
+<h2>The Beginning</h2>
+<p>In mid February I came across a “March app challenge” and figured I’d give it a shot. I was interested in Google Gemini’s video API for a few weeks prior, and wanted to work on something that could use it. I had experimented with Google Flutter a bit in the past, and had been working on learning Swift and iOS development off and on for a little while, so a month-long challenge to develop and deploy a mobile app seemed great. </p>
+<p>With the only constraint being: use Gemini’s video API, I turned to the fitness category. There are so many workout log apps on the App Store, and they all involve a tedious data entry process to track effectively. I wanted to build a general-purpose workout tracker that used video analysis to manage the tedious parts automatically. </p>
+<p>I wanted the core flow to be simple: launch the in-app camera, set up your phone (with stand or against object) with the front camera facing you, start recording, and get realtime stats updates for your workout. At the end of the workout, you can make slight edits (if needed), then save the stats to the workout tracker. Gone are the days of tediously entering in data for every unique workout. </p>
+<p> </p>
+<p>IMG-WorkoutAppFlow</p>
+<p>Workout App Flow</p>
+<h2>The Middle</h2>
+<p>With a one month window to actually release the app (spoiler: didn’t end up releasing this app), I knew it was important to dive right in. I had a lot to learn having never built a full app before: server to handle api requests, login / subscription handling, notifications, cloud storage, clean UI, and of course the AI / video features themselves. </p>
+<p>Without experience in this area, I did a few searches, and landed on Apple’s documentation for AVFoundation. The AVCam app ended up being a great into to how the iOS camera APIs work and gave me a solid place to start (<a href="https://developer.apple.com/documentation/avfoundation/avcam-building-a-camera-app">AVCam: Building a camera app | Apple Developer Documentation</a>). I mirrored the majority of the AVCam architecture and design choices, but stripped out all of the photo features to focus on a video-only architecture. </p>
+<p> </p>
+<p>IMG-CameraArchitecture</p>
+<p>Camera Architecture</p>
+<p>I was set on using Swift for everything, even the server, and went with Vapor (vapor.codes). </p>
+<h2>The End</h2>
+<p>During the third week of March I ran into serious difficulties with</p>
