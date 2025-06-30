@@ -8,6 +8,7 @@ body {
   color: #222;
   margin: 0;
   padding: 0;
+  padding-top: 60px; /* offset for fixed title bar */
 }
 
 /* 3. Page Title */
@@ -64,4 +65,46 @@ hr {
     margin-bottom: 1.5rem;  /* adjust spacing below date as needed */
     font-size: 0.9rem;
     font-style: italic;
+}
+
+/* 6. Title Bar Layout */
+.title-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.title-bar .tab-left {
+  justify-self: end;
+}
+
+.title-bar .tab-right {
+  justify-self: start;
+}
+
+.title-bar .title-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.title-bar .tab-link {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.title-bar .tab-link:hover {
+  color: #3498db;
 }
