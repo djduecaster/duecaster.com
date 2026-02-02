@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #f8f8f6;
-  --card: #ffffff;
-  --text: #1f2933;
-  --muted: #5b6770;
-  --accent: #1f6feb;
-  --border: #e6e6e6;
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
-  --glow: rgba(45, 148, 214, 0.45);
-  --glow-strong: rgba(45, 148, 214, 0.75);
-  --glass: rgba(245, 251, 255, 0.7);
+  --bg: #050505;
+  --card: #0f0f10;
+  --text: #f5f5f5;
+  --muted: #b4b4b4;
+  --accent: #ffffff;
+  --border: #2a2a2a;
+  --shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+  --glow: rgba(255, 255, 255, 0.15);
+  --glow-strong: rgba(255, 255, 255, 0.25);
+  --glass: rgba(15, 15, 16, 0.92);
 }
 
 * {
@@ -44,9 +44,8 @@ main {
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(248, 248, 246, 0.9);
+  background: rgba(5, 5, 5, 0.92);
   border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
   z-index: 1000;
 }
 
@@ -126,7 +125,7 @@ h1 {
 
 .btn.primary {
   background: var(--accent);
-  color: #fff;
+  color: #050505;
   border-color: var(--accent);
 }
 
@@ -256,8 +255,9 @@ h1 {
 }
 
 .writing-tags span {
-  background: #eef2ff;
-  color: #1e3a8a;
+  background: #1a1a1a;
+  color: #e6e6e6;
+  border: 1px solid var(--border);
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   font-size: 0.75rem;
@@ -334,8 +334,9 @@ h1 {
 }
 
 .tag-list li {
-  background: #eef2ff;
-  color: #1e3a8a;
+  background: #1a1a1a;
+  color: #e6e6e6;
+  border: 1px solid var(--border);
   padding: 0.4rem 0.8rem;
   border-radius: 999px;
   font-size: 0.85rem;
@@ -407,9 +408,7 @@ h1 {
   margin: 0 0 0.5rem;
 }
 body[data-page] {
-  background: radial-gradient(circle at top left, rgba(120, 210, 255, 0.12), transparent 45%),
-              radial-gradient(circle at bottom right, rgba(120, 210, 255, 0.1), transparent 50%),
-              var(--bg);
+  background: var(--bg);
 }
 
 body[data-page] .site-nav,
@@ -431,6 +430,7 @@ body[data-page] .site-footer {
   inset: 0;
   pointer-events: none;
   z-index: 1;
+  display: none;
 }
 
 .fx-orb-dot {
@@ -438,10 +438,7 @@ body[data-page] .site-footer {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  opacity: 0.35;
-  background: radial-gradient(circle, rgba(45, 148, 214, 0.7) 0%, rgba(45, 148, 214, 0.15) 70%, transparent 100%);
-  box-shadow: 0 0 16px rgba(45, 148, 214, 0.2);
-  animation: orb-drift 36s ease-in-out infinite;
+  opacity: 0;
 }
 
 .fx-orb-dot:nth-child(1) { top: 10%; left: 18%; width: 10px; height: 10px; animation-duration: 42s; }
@@ -467,27 +464,25 @@ body[data-page] .site-footer {
 }
 
 body[data-page] .site-nav {
-  background: rgba(238, 247, 255, 0.8);
-  border-bottom-color: rgba(45, 148, 214, 0.3);
+  background: rgba(5, 5, 5, 0.92);
+  border-bottom-color: var(--border);
 }
 
 body[data-page] .nav-links a {
-  color: #3a4a5b;
+  color: var(--muted);
 }
 
 body[data-page] .nav-links a.is-active {
-  color: #0f1c2b;
+  color: var(--text);
 }
 
 body[data-page] .hero-inner,
 body[data-page] .card,
 body[data-page] .writing-item,
 body[data-page] .highlight-item {
-  background: var(--glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-color: rgba(45, 148, 214, 0.3);
-  box-shadow: 0 0 0 1px rgba(45, 148, 214, 0.16), 0 18px 40px rgba(16, 28, 40, 0.08);
+  background: var(--card);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
 }
 
 body[data-page] .card,
@@ -498,33 +493,26 @@ body[data-page] .writing-item {
 
 body[data-page] .card::after,
 body[data-page] .writing-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid transparent;
-  background: linear-gradient(120deg, transparent, rgba(45, 148, 214, 0.5), transparent) border-box;
-  opacity: 0.55;
-  pointer-events: none;
+  content: none;
 }
 
 body[data-page] .card:hover,
 body[data-page] .writing-item:hover {
-  box-shadow: 0 0 0 1px rgba(45, 148, 214, 0.28), 0 24px 50px rgba(16, 28, 40, 0.15);
+  box-shadow: 0 0 0 1px var(--border), 0 24px 50px rgba(0, 0, 0, 0.45);
   transform: translateY(-2px);
 }
 
 body[data-page] .btn.primary {
-  box-shadow: 0 0 18px rgba(45, 148, 214, 0.5);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
 }
 
 body[data-page] .highlight-item {
-  color: #1b2a3a;
+  color: var(--text);
 }
 
 body[data-page] .text-link,
 body[data-page] .card-links {
-  color: #1b5dd6;
+  color: var(--accent);
 }
 
 body[data-page] .hero-inner {
@@ -533,19 +521,19 @@ body[data-page] .hero-inner {
 }
 
 body[data-page] .hero-inner h1 {
-  text-shadow: 0 0 18px rgba(45, 148, 214, 0.3);
+  text-shadow: none;
 }
 
 body[data-page] .section-header h2 {
-  color: #0f1c2b;
+  color: var(--text);
 }
 
 body[data-page] .cta-row .btn.secondary {
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--card);
 }
 
 body[data-page] .cta-row .btn.ghost {
-  border-color: rgba(45, 148, 214, 0.35);
+  border-color: var(--border);
 }
 
 body[data-page] .hero,
