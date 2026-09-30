@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PALA V1: a five-axis expressive desk lamp combining custom mechanisms, Gemini camera observations, and deterministic Python motion control. Watch the working demo.">
+  <title>PALA V1 — Dylan Duecaster</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body class="page-pala" data-page="pala">
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/dylan/">DD</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/dylan/">Home</a>
+        <a class="is-active" href="/dylan/projects/">Projects</a>
+        <a href="/dylan/writing/">Writing</a>
+        <a href="/dylan/resume/">Resume</a>
+        <a href="/dylan/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="hero-inner">
+        <a class="text-link" href="/dylan/projects/">← All projects</a>
+        <p class="eyebrow">Robotics · Completed V1 · September 19, 2026</p>
+        <h1>A desk lamp with a little character.</h1>
+        <p class="lede">PALA, the Programmable Autonomous Lamp Assistant, turns an IKEA NYMÅNE lamp into a five-axis desk companion. Custom printed mechanisms, camera perception, and expressive motion come together in a working, supervised prototype.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#demo">Watch the 1:47 demo</a>
+          <a class="btn secondary" href="https://github.com/djduecaster/pala">Explore the source</a>
+          <a class="btn ghost" href="https://github.com/djduecaster/pala/releases/tag/v0.1.0">V1 release</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="section-header">
+        <h2 id="demo-title">From a visible cue to physical expression</h2>
+        <p class="section-subtitle">The finished V1 film: real hardware, the lamp's camera view, mechanism details, and motion reconstruction.</p>
+      </div>
+      <figure class="pala-demo">
+        <video controls playsinline preload="none" poster="pala-demo.jpg" width="1920" height="1080" aria-label="PALA V1 demonstration" aria-describedby="demo-caption demo-description">
+          <source src="https://github.com/djduecaster/pala/releases/download/v0.1.0/pala-v1-demo.mp4" type="video/mp4">
+          <p>Your browser cannot play this video. <a href="https://github.com/djduecaster/pala/releases/download/v0.1.0/pala-v1-demo.mp4">Download the PALA V1 demo</a>.</p>
+        </video>
+        <figcaption id="demo-caption">1 minute 47 seconds. Simulator views and joint charts reconstruct commanded motion; they are not measured servo feedback. <a href="https://github.com/djduecaster/pala/releases/download/v0.1.0/pala-v1-demo.mp4">Download the full-quality film (MP4, 62 MB)</a>.</figcaption>
+      </figure>
+      <details class="pala-description" id="demo-description">
+        <summary>Read the interaction description</summary>
+        <p>PALA makes a small noticing movement when someone sits down, greets a look toward its shade-mounted camera, and celebrates a thumbs-up with a lean, recoil, and coordinated yaw/pitch motion. Pointing left or right selects a turn in that general direction. Turning back to work lets the lamp disengage and settle into gentle breathing at rest.</p>
+        <p>The film pairs the physical lamp with camera footage, mechanism close-ups, and simulator views. Charts show commanded angles, not the actual measured position of the servos.</p>
+      </details>
+    </section>
+
+    <section class="section" aria-labelledby="architecture-title">
+      <div class="section-header">
+        <h2 id="architecture-title">Observation → behavior → motion</h2>
+        <p class="section-subtitle">The model interprets a scene. Local code decides how the lamp moves.</p>
+      </div>
+      <div class="callout-grid">
+        <div class="callout-item">
+          <h3>Observe a stationary snapshot</h3>
+          <p>A shade-mounted Logitech camera captures the scene through GStreamer. Gemini returns structured observations of presence, apparent attention, and visible gestures.</p>
+        </div>
+        <div class="callout-item">
+          <h3>Choose a fixed performance</h3>
+          <p>Python behavior gates check freshness and interaction stage before selecting deterministic choreography. Gemini never supplies servo angles.</p>
+        </div>
+        <div class="callout-item">
+          <h3>Execute within configured limits</h3>
+          <p>Independent perception, behavior, control, and hardware loops run on Jetson. A PCA9685 drives five hobby-servo joints through calibrated mappings and joint limits.</p>
+        </div>
+      </div>
+      <div class="section-footer"><a class="text-link" href="https://github.com/djduecaster/pala/blob/v0.1.0/docs/architecture.md">Read the architecture →</a></div>
+    </section>
+
+    <section class="section" aria-labelledby="outcome-title">
+      <div class="section-header">
+        <h2 id="outcome-title">What V1 establishes</h2>
+      </div>
+      <div class="page-hero-grid">
+        <div class="info-card">
+          <h3>A complete interaction loop</h3>
+          <p>The final performances were tuned on the physical lamp through repeated operator ratings. Camera framing and mechanical constraints shaped both the resting posture and expressive gestures.</p>
+        </div>
+        <div class="info-card">
+          <h3>Software evidence</h3>
+          <p>The V1 release reports 361 passing software tests and clean dummy-runtime startup and shutdown. A browser simulator and gesture workshop support iteration; they do not validate physical safety.</p>
+        </div>
+        <div class="info-card">
+          <h3>Deliberate boundaries</h3>
+          <p>This is a supervised prototype with variable model latency and constrained seated framing. Observations pause during motion. Pointing selects left/right choreography, and the servos provide no measured joint feedback.</p>
+        </div>
+      </div>
+      <p class="pala-note">The fifth joint is available but largely unused in the final gestures. The deadman timeout is software-only, not an independent electrical emergency stop. Full CAD and some hardware details remain pending.</p>
+      <div class="cta-row">
+        <a class="btn secondary" href="https://github.com/djduecaster/pala/blob/v0.1.0/docs/recreating_pala.md">Recreation guide</a>
+        <a class="btn ghost" href="https://github.com/djduecaster/pala/blob/v0.1.0/docs/live_interaction.md">Interaction details</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div>
+        <h3>Contact</h3>
+        <p><a href="mailto:dylan@duecaster.com">dylan@duecaster.com</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/dylanduecaster/">LinkedIn</a>
+        <a href="https://github.com/djduecaster">GitHub</a>
+      </div>
+          </div>
+  </footer>
+</body>
+</html>

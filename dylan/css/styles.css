@@ -625,3 +625,70 @@ body[data-page] .section,
 body[data-page] .highlights {
   position: relative;
 }
+
+/* PALA V1: use the existing portfolio palette and card system. */
+.pala-card .project-image {
+  display: block;
+  margin: -1.5rem -1.5rem 1.25rem;
+}
+
+.pala-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pala-card .card-links {
+  flex-wrap: wrap;
+}
+
+.pala-demo {
+  margin: 0;
+}
+
+.pala-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.pala-demo figcaption,
+.pala-description,
+.pala-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+.pala-demo a,
+.pala-description summary {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pala-description summary {
+  cursor: pointer;
+}
+
+.pala-card a:focus-visible,
+.page-pala a:focus-visible,
+.page-pala summary:focus-visible,
+.page-pala video:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.page-pala #demo {
+  scroll-margin-top: 1rem;
+}
+
+@media (max-width: 480px) {
+  body[data-page="pala"] .hero-inner {
+    padding: 1.5rem;
+  }
+}
