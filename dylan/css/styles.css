@@ -688,7 +688,7 @@ body[data-page] .highlights {
 }
 
 @media (max-width: 480px) {
-  .page-pala .hero-inner {
+  body[data-page="pala"] .hero-inner {
     padding: 1.5rem;
   }
 }
